@@ -1,0 +1,59 @@
+# Archivos de la configuración de Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+*.egg
+
+# Archivos de configuración de entornos virtuales de Python
+.venv/
+venv/
+ENV/
+
+# Archivos de configuración de Django
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py
+#db.sqlite3
+#db.sqlite3-journal
+#media
+
+# Archivos de configuración y caché de Celery
+celerybeat.pid
+celerybeat-schedule
+celerycam.pid
+celeryd.pid
+celeryworker.pid
+
+# Archivos de configuración de desarrollo y producción
+develop.py
+production.py
+
+# Archivos y directorios de Node.js y npm
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Archivos de configuración de macOS
+.DS_Store
+
+# Archivos de configuración de JetBrains IDEs (PyCharm, WebStorm, etc.)
+.idea/
+
+# Archivos de configuración de Visual Studio Code
+.vscode/
+
+# Archivos y directorios de otros sistemas y herramientas
+*.bak
+*.swp
+*.swo
+*.swn
+*~
+
