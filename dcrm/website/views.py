@@ -16,7 +16,10 @@ def home(request):
         if user is not None:
             login(request,user)
             messages.success(request,'Bienvenido... ')
-            return redirect('home') 
+            return redirect('home')
+        else:
+            messages.error(request,'Usuario o contraseña incorrecta.')
+            return redirect('home')
 
     return render(request,'home.html',{})
 
