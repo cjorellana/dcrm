@@ -3,7 +3,19 @@
 {% block title %}Register User {% endblock%}
 
 {% block body %}
+<h1>Register</h1>
+<br />
+<form action="{% url 'home' %}" method="POST">
+    {% csrf_token %}
+    <form>
 
+        {{ form.as_p }}
+
+        <br />
+        <button type="submit" class="btn btn-secondary">
+            Register
+        </button>
+    </form>
 
 
 {% endblock %}
