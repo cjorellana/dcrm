@@ -34,6 +34,7 @@ def logout_user(request):
 
 
 def register_user(request):
+
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
@@ -48,3 +49,5 @@ def register_user(request):
         form = SignUpForm()
         context = {'form':form}
         return render(request,'register.html',context) 
+
+    return render(request,'register.html',{'form':form})
