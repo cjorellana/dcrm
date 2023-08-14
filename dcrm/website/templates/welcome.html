@@ -1,1 +1,17 @@
 <h1> Bienvenido {{ user.username }} ... </h1>
+
+{% if records %}
+
+    {% for record in records %}
+    
+        - {{ record.first_name }} {{ record.last_name}} {{ record.email }}
+     
+        <span class="badge rounded-pill bg-info text-white">{{ record.email }}</span>
+
+
+        
+        <br />
+
+    {% endfor %}
+
+{% endif %}
