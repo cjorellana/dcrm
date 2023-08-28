@@ -1,6 +1,27 @@
 <h1> Bienvenido {{ user.username }} ... </h1>
 
+{% comment %} <table class="table table-dark table-striped table-hover"> {% endcomment %}
+<table class="table table-striped table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">first name</th>
+            <th scope="col">last name</th>
+            <th scope="col">Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        <td>1</td>
+        <td>Carlos</td>
+        <td>Orellana</td>
+        <td>cjorellana@gmai.com</td>
+    </tbody>
+</table>
+
+
 {% if records %}
+
 
     {% for record in records %}
     
