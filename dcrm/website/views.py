@@ -20,7 +20,7 @@ def home(request):
         
         if user is not None:
             login(request,user)
-            messages.success(request,'Bienvenido... ')
+            messages.info(request,'Bienvenido... ')
             return redirect('home')
         else:
             messages.error(request,'Usuario o contraseña incorrecta.')
@@ -33,7 +33,7 @@ def home(request):
 
 def logout_user(request):
     logout(request)
-    messages.success(request,'Adios ... ')
+    messages.warning(request,'Adios ... ')
     return redirect('home')
 
 
@@ -55,3 +55,11 @@ def register_user(request):
         return render(request,'register.html',context) 
 
     return render(request,'register.html',{'form':form})
+
+def select_record(request,pk):
+    if request.user.is_authenticated:
+        record = Record.objects.get(pk=pk)
+        return render(request,'record.html',{'record':record})
+    else:
+        messages.success(request,'Identificate primero ... ')
+        return redirect('home')

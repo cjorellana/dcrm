@@ -11,11 +11,22 @@
         </tr>
     </thead>
     <tbody>
-        
-        <td>1</td>
-        <td>Carlos</td>
-        <td>Orellana</td>
-        <td>cjorellana@gmai.com</td>
+
+        {% if records %}
+            {% for record in records %}
+            <tr>
+                <td> 
+                  <a href="{% url 'record' record.id %}"> 
+                    {{ record.id }}
+                  </a>
+                </td>
+                <td>{{ record.first_name }}</td>
+                <td>{{ record.last_name }}</td>
+                <td>{{ record.email }}</td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+
     </tbody>
 </table>
 
