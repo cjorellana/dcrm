@@ -4,7 +4,43 @@
 
 {% block body %}
 
-<h1>Cliente:</h1>
-{{ record }}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <h1>Cliente:</h1>
+            
+            <div class="card">
+                <div class="card-header">
+                    {{ record.first_name }} {{ record.last_name }}
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        <strong>Correo: </strong>
+                        {{ record.email }} <br />
+                        <strong>Teléfono: </strong>
+                        {{ record.phone }} <br />
+                        <strong>Dirección: </strong>
+                        {{ record.address }} <br />
+                        <strong>Ciudad: </strong>
+                        {{ record.city }} <br />
+                        <strong>Estado: </strong>
+                        {{ record.state }} <br />
+                        <strong>Zip: </strong>
+                        {{ record.zipcode }} <br />
+                    </p>
+                </div>
+            </div>
+
+            <br /> 
+            <a href="{% url 'home' %}" class="btn btn-secondary"> Regresar </a>
+            <a href="{% url 'home' %}" class="btn btn-danger"> Borrar </a>
+
+        </div>
+
+        
+    </div>
+</div>
 
 {% endblock %}
