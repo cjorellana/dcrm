@@ -29,13 +29,15 @@
                         {{ record.state }} <br />
                         <strong>Zip: </strong>
                         {{ record.zipcode }} <br />
+                        <strong>Id: </strong>
+                        {{ record.id }} <br />
                     </p>
                 </div>
             </div>
 
             <br /> 
             <a href="{% url 'home' %}" class="btn btn-secondary"> Regresar </a>
-            <a href="{% url 'home' %}" class="btn btn-danger"> Borrar </a>
+            <a href="{% url 'delete_record' record.id %}" class="btn btn-danger"> Borrar </a>
 
         </div>
 

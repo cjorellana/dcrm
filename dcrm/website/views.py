@@ -63,3 +63,13 @@ def select_record(request,pk):
     else:
         messages.success(request,'Identificate primero ... ')
         return redirect('home')
+
+def delete_record(request,pk):
+    if request.user.is_authenticated:
+        record = Record.objects.get(pk=pk)
+        record.delete()
+        messages.success(request,'Record a sido eliminado ... ')
+        return redirect('home')
+    else:
+        messages.success(request,'Identificate primero ... ')
+        return redirect('home')
