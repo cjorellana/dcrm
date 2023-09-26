@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
+from .models import Record
 
 
 class SignUpForm(UserCreationForm):
@@ -44,3 +45,56 @@ class SignUpForm(UserCreationForm):
         self.fields['password2'].widget.attrs['placeholder'] = 'Confirmar Contraseña'
         self.fields['password2'].label = ''
         self.fields['password2'].help_text = '<span class="form-text text-muted"><small>Ingrese la misma contraseña que antes, para verificación.</small></span>'	
+
+class AddRecordForm(forms.ModelForm):
+    first_name = forms.CharField(required=True, max_length=100,
+        widget=forms.TextInput(
+            attrs={'class':'form-control','placeholder': 'Nombre'}
+        ),label="")
+    
+    last_name = forms.CharField(required=True, max_length=100,
+        widget=forms.TextInput(
+            attrs={'class':'form-control','placeholder': 'Apellido'}
+        ),label="")
+    
+    email = forms.CharField(required=True, max_length=100,
+        widget=forms.TextInput(
+            attrs={'class':'form-control','placeholder': 'Correo Electronico'}
+        ),label="")
+    
+    phone = forms.CharField(required=True, max_length=100,
+        widget=forms.TextInput(
+            attrs={'class':'form-control','placeholder': 'Telefono'}
+        ),label="")
+    
+    address = forms.CharField(required=True, max_length=100,
+        widget=forms.TextInput(
+            attrs={'class':'form-control','placeholder': 'Dirección'}
+        ),label="")
+    
+    city = forms.CharField(required=True, max_length=100,
+        widget=forms.TextInput(
+            attrs={'class':'form-control','placeholder': 'Ciudad'}
+        ),label="")
+    
+    state = forms.CharField(required=True, max_length=100,
+        widget=forms.TextInput(
+            attrs={'class':'form-control','placeholder': 'Departamento'}
+        ),label="")
+    
+    zipcode = forms.CharField(required=True, max_length=100,
+        widget=forms.TextInput(
+            attrs={'class':'form-control','placeholder': 'Zip Code'}
+        ),label="")
+
+    class Meta:
+        model = Record
+        exclude = ('user',)
+
+    def __init__(self, *args, **kwargs):
+         super(AddRecordForm, self).__init__(*args, **kwargs)
+
+    #     self.fields['name'].widget.attrs['class'] = 'form-control'
+    #     self.fields['name'].widget.attrs['placeholder'] = 'Nombre'
+    #     self.fields['name'].label = ""
+         self.fields['first_name'].help_text = '<span class="form-text text-muted"><small>Requerido. 20 caracteres o menos. </small></span>'
