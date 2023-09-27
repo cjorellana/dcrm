@@ -36,8 +36,9 @@
             </div>
 
             <br /> 
-            <a href="{% url 'home' %}" class="btn btn-secondary"> Regresar </a>
+            <a href="{% url 'home' %}" class="btn btn-primary"> Regresar </a>
             <a href="{% url 'delete_record' record.id %}" class="btn btn-danger"> Borrar </a>
+            <a href="{% url 'update_record' record.id %}" class="btn btn-secondary"> Editar </a>
 
         </div>
 

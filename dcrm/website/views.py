@@ -87,6 +87,19 @@ def add_record(request):
         messages.success(request,'Identificate primero ... ')
         return redirect('home')  
 
+def update_record(request,pk):
+    if request.user.is_authenticated:
+        record = Record.objects.get(id=pk)
+        form = AddRecordForm(request.POST or None,instance=record)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'Record a sido actualizado ... ')
+            return redirect('home')
+        return render(request,'update_record.html',{'form':form})  #get
+    else:
+        messages.success(request,'Identificate primero ... ')
+        return redirect('home')
+
 def add_record_old(request):
     if request.user.is_authenticated:
         if request.method == 'POST':

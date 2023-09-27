@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Record{% endblock%}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-md-6 offset-md-3">
+            <h1>Register</h1>
+            <br />
+
+            <form method="POST">
+                {% csrf_token %}
+
+                {{ form.as_p }}
+
+                <br />
+                <a href="{% url 'home' %}" class="btn btn-primary"> Regresar </a>
+                <button type="submit" class="btn btn-secondary">
+                    Guardar
+                </button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
