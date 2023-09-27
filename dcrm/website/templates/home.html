@@ -4,18 +4,11 @@
 
 {% block body %}
 
-<div class="container">
-    <div class="row">
-        <div class="col-12 col-md-6 offset-md-3">
+{% if user.is_authenticated %}
+    {% include 'welcome.html' %}
+{% else %}
+    {% include 'login.html' %}
+{% endif %}
 
-            {% if user.is_authenticated %}
-                {% include 'welcome.html' %}
-            {% else %}
-                {% include 'login.html' %}
-            {% endif %}
-
-        </div>
-    </div>
-</div>
 
 {% endblock %}
