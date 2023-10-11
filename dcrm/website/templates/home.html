@@ -21,9 +21,9 @@
 <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
 <script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
 <script>
-    $(document).ready( function () {
-        $('#myTable').DataTable();
-    } );
+    let table = new DataTable('#myTable', {
+        paging: false,
+    });
 </script>
 {% endblock%}
 
