@@ -1,14 +1,29 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Django Crm {% endblock%}
+{% block css %} 
+<link rel="stylesheet" href="{% static 'css/jquery.dataTables.min.css' %}">
+
+{% endblock %} 
 
 {% block body %}
 
-{% if user.is_authenticated %}
-    {% include 'welcome.html' %}
-{% else %}
-    {% include 'login.html' %}
-{% endif %}
-
+    {% if user.is_authenticated %}
+        {% include 'welcome.html' %}
+    {% else %}
+        {% include 'login.html' %}
+    {% endif %}
 
 {% endblock %}
+
+{% block js %} 
+<script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+<script src="{% static 'js/jquery.dataTables.min.js' %}"></script>
+<script>
+    $(document).ready( function () {
+        $('#myTable').DataTable();
+    } );
+</script>
+{% endblock%}
+
